@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: Harley;
+    font-weight: 400;
+    src: url(./assets/fonts/harley.ttf) format("ttf");
+  }
+  .font-outline-2 {
+    -webkit-text-stroke: 2px #08a78b;
+  }
+  .font-outline-3 {
+    -webkit-text-stroke: 3px #08a78b;
+  }
+  .font-outline-4 {
+    -webkit-text-stroke: 4px #08a78b;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: #f7fafc;
+}
