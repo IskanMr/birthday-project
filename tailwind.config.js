@@ -15,8 +15,8 @@ module.exports = {
         black: "#3F4254",
       },
       fontFamily: {
-        display: ["Harley", "Poppins", "sans-serif"],
-        body: ["Poppins", "sans-serif"],
+        display: ["Poppins", "sans-serif"],
+        title: ["Harley", "sans-serif"],
       },
     },
   },
