@@ -1,4 +1,5 @@
 import { HtmlHead } from "../components/HtmlHead";
+import { MusicPlayer } from "../components/MusicPlayer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmarkCircle } from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
@@ -18,6 +19,7 @@ export default function Home() {
         link="/"
       />
       <div className="relative">
+        {/* This is modal */}
         <div
           className={`${
             showModal ? "block" : "hidden "
@@ -46,6 +48,7 @@ export default function Home() {
           </div>
         </div>
         <button onClick={onShowModal}>Show modal</button>
+        <MusicPlayer />
       </div>
     </>
   );
