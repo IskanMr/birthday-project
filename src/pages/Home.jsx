@@ -11,12 +11,24 @@ export default function Home() {
   const [section, setSection] = useState("message");
 
   const button =
-    "w-[100px] py-1 bg-green-normal/50 text-white/95 text-sm transition duration-300 ease-in-out font-medium border-2 border-green-normal";
+    "w-[100px] py-1 bg-green-lighter text-green-normal text-sm transition duration-300 ease-in-out font-medium border-2 border-green-normal";
   const buttonActive =
     "w-[100px] py-1 bg-green-normal text-white text-sm transition duration-300 ease-in-out border-2 border-green-normal";
 
   // Array of image URLs
   const images = [
+    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
+    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
+    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
+    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
+    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
+    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
+    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
+    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
+    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
+    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
+    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
+    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
     "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
     "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
     "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
@@ -33,7 +45,7 @@ export default function Home() {
         decription="[insert page description]"
         link="/"
       />
-      <div className="relative flex h-screen flex-col overflow-clip bg-blue">
+      <div className="relative flex min-h-screen flex-col bg-blue">
         {section === "message" && (
           <div className="px-4 pt-6 text-xl">
             Selamat ulang tahun ya cantik, semoga bla bla bla dan semakin bla
@@ -42,7 +54,7 @@ export default function Home() {
         )}
 
         {section === "galery" && (
-          <div className="grid grid-cols-3 gap-1 px-4 py-7">
+          <div className="grid grid-cols-3 gap-[2px] ">
             {images.map((image, index) => (
               <img
                 key={index}
@@ -57,7 +69,7 @@ export default function Home() {
         {/* <button onClick={() => setShowModal(!showModal)}>Show modal</button> */}
 
         {/* Bottom section  */}
-        <div className=" absolute bottom-0 z-[1] mb-4 flex w-full flex-col justify-center">
+        <div className="   fixed bottom-0 z-[1] mb-4 flex w-full flex-col justify-center">
           <div className="mb-3 flex justify-center">
             <button
               className={`${
@@ -105,7 +117,7 @@ export default function Home() {
           </div>
           {/* <img src="" alt="" className=" min-h-[40vh] pb-6" /> */}
           <div className=" min-h-[40vh] pb-6"></div>
-          <div className="font-outline-2 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-nowrap text-[56px] font-black leading-[56px] text-transparent">
+          <div className="font-outline-1 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-nowrap text-[56px] font-black leading-[56px] text-transparent">
             21 21 21 21 21 21 21 <br />
             21 21 21 21 21 21 21 <br />
             21 21 21 21 21 21 21 <br />
