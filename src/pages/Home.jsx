@@ -124,9 +124,9 @@ export default function Home() {
             21 21 21 21 21 21 21 <br />
             21 21 21 21 21 21 21 <br />
           </div> */}
-          <div className="fixed bottom-0 z-[1] mb-4 flex w-full flex-col justify-center space-y-7">
-            <div className=" text-center text-xl">to: </div>
-            <div className="text-center font-title text-5xl">
+          <div className="fixed bottom-0 z-[1] mb-4 flex w-full flex-col justify-center">
+            <div className=" text-center font-title text-3xl">to: </div>
+            <div className="mb-7 text-center font-title text-4xl">
               My Lovely Cute Flower
             </div>
             <button onClick={() => setShowModal(!showModal)}>

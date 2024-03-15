@@ -17,7 +17,7 @@ module.exports = {
       },
       fontFamily: {
         display: ["Poppins", "sans-serif"],
-        title: ["Harley", "sans-serif"],
+        title: ["Allura", "sans-serif"],
       },
     },
   },
