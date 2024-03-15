@@ -6,7 +6,7 @@ import NotFound from "./pages/NotFound";
 function App() {
   return (
     <div className={`app`}>
-      <main className="min-h-screen w-full font-display">
+      <main className="font-display">
         <Routes>
           <Route path="/" element={<Home />} />
 

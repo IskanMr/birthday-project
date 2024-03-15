@@ -22,31 +22,31 @@ const tracks = [
 
 const colors = {
   tagsBackground: "#3e32e4",
-  tagsText: "#ffffff",
+  tagsText: "#F7F7F7",
   tagsBackgroundHoverActive: "#6e65f1",
-  tagsTextHoverActive: "#ffffff",
-  searchBackground: "#18191f",
-  searchText: "#ffffff",
+  tagsTextHoverActive: "#F7F7F7",
+  searchBackground: "#08A78B",
+  searchText: "#F7F7F7",
   searchPlaceHolder: "#575a77",
-  playerBackground: "#18191f",
-  titleColor: "#ffffff",
-  timeColor: "#ffffff",
-  progressSlider: "#3e32e4",
-  progressUsed: "#ffffff",
+  playerBackground: "#08A78B",
+  titleColor: "#F7F7F7",
+  timeColor: "#F7F7F7",
+  progressSlider: "#F7F7F7",
+  progressUsed: "#F7F7F7",
   progressLeft: "#151616",
   bufferLoaded: "#1f212b",
   volumeSlider: "#3e32e4",
-  volumeUsed: "#ffffff",
+  volumeUsed: "#F7F7F7",
   volumeLeft: "#151616",
-  playlistBackground: "#18191f",
+  playlistBackground: "#08A78B",
   playlistText: "#575a77",
-  playlistBackgroundHoverActive: "#18191f",
-  playlistTextHoverActive: "#ffffff",
+  playlistBackgroundHoverActive: "#08A78B",
+  playlistTextHoverActive: "#F7F7F7",
 };
 
-export function MusicPlayer() {
+export function MusicPlayer({ className = "" }) {
   return (
-    <div className=" px-4">
+    <div className={`${className} px-4`}>
       <Player
         trackList={tracks}
         customColorScheme={colors}

@@ -7,7 +7,7 @@ module.exports = {
           normal: "#08A78B",
           light: "#D3F0E5",
         },
-        blue: "9FDEF2",
+        blue: "#9FDEF2",
         purple: "#EDC9FF",
         pink: "#FED4E7",
         yellow: "#FCF058",

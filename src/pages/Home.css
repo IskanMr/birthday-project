@@ -1,0 +1,20 @@
+.modal {
+  transition: opacity 0.5s ease-in-out;
+  position: fixed;
+}
+
+.modal.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal.close {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
