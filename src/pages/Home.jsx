@@ -117,13 +117,13 @@ export default function Home() {
           </div>
           {/* <img src="" alt="" className=" min-h-[40vh] pb-6" /> */}
           <div className=" min-h-[40vh] pb-6"></div>
-          <div className="font-outline-1 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-nowrap text-[56px] font-black leading-[56px] text-transparent">
+          {/* <div className="font-outline-1 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-nowrap text-[56px] font-black leading-[56px] text-transparent">
             21 21 21 21 21 21 21 <br />
             21 21 21 21 21 21 21 <br />
             21 21 21 21 21 21 21 <br />
             21 21 21 21 21 21 21 <br />
             21 21 21 21 21 21 21 <br />
-          </div>
+          </div> */}
           <div className="flex flex-col items-center space-y-3">
             <div className=" text-left text-xl">to: </div>
             <div className="text-center font-title text-5xl">
