@@ -12,7 +12,7 @@ module.exports = {
         purple: "#EDC9FF",
         pink: "#FED4E7",
         yellow: "#FCF058",
-        white: "#F7F7F7",
+        white: "#ffffff",
         black: "#3F4254",
       },
       fontFamily: {

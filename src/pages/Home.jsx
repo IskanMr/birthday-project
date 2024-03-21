@@ -1,28 +1,46 @@
 import { HtmlHead } from "../components/HtmlHead";
 import { MusicPlayer } from "../components/MusicPlayer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronUp,
+  faNoteSticky,
+  faPhotoFilm,
+} from "@fortawesome/free-solid-svg-icons";
 import { faXmarkCircle } from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
 import bgDuck from "../assets/img/bg-duck.png";
 import Images from "../components/imageImport";
 import { Img } from "react-image";
-import "./Home.css";
 
 export default function Home() {
   const [showModal, setShowModal] = useState(true);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [showImage, setShowImage] = useState(false);
+  const [selectedImage, setSelectedImage] = useState({
+    name: null,
+    src: null,
+    description: null,
+  });
   const [section, setSection] = useState("message");
   const [showMusic, setShowMusic] = useState(true);
+
+  const resetSelectedImage = () => {
+    setShowImage(false);
+    setSelectedImage({ name: null, src: null, description: null });
+  };
+
+  const onImageClick = (image) => {
+    setShowImage(true);
+    setSelectedImage(image);
+  };
 
   const MyLoader = () => <div>Loading...</div>;
 
   const MyErrorComponent = () => <div>Error!</div>;
 
   const button =
-    "w-[100px] py-1 bg-green-lighter text-green-normal text-sm transition duration-300 ease-in-out font-medium border-2 border-green-normal";
+    "w-[72px] py-1 bg-green-lighter text-green-normal text-sm transition duration-300 ease-in-out font-medium border-2 border-green-normal";
   const buttonActive =
-    "w-[100px] py-1 bg-green-normal text-white text-sm transition duration-300 ease-in-out border-2 border-green-normal";
+    "w-[72px] py-1 bg-green-normal text-white text-sm transition duration-300 ease-in-out border-2 border-green-normal";
 
   return (
     <>
@@ -31,9 +49,9 @@ export default function Home() {
         decription="[insert page description]"
         link="/"
       />
-      <div className="relative flex min-h-screen flex-col bg-blue">
+      <div className="relative flex min-h-screen flex-col bg-blue py-2">
         {section === "message" && (
-          <div className="z-10 px-4 pt-6 text-xl">
+          <div className=" z-10 mx-4 mt-6 flex rounded-md bg-white p-2 text-lg outline-2 outline-green-normal ">
             Selamat ulang tahun ya cantik, semoga bla bla bla dan semakin bla
             bla bla. Thank you udah bla bla bla
           </div>
@@ -45,9 +63,9 @@ export default function Home() {
               <Img
                 key={index}
                 loading="lazy"
-                src={image}
+                src={image.src}
                 alt=""
-                onClick={() => setSelectedImage(image)}
+                onClick={() => onImageClick(image)}
                 className="h-[32vw] w-full object-cover"
                 loader={<MyLoader />}
                 unloader={<MyErrorComponent />}
@@ -77,7 +95,12 @@ export default function Home() {
               } rounded-l-md`}
               onClick={() => setSection("message")}
             >
-              Message
+              <FontAwesomeIcon
+                icon={faNoteSticky}
+                className={`${
+                  section === "galery" ? " text-green-normal" : "text-white"
+                } h-4 transition-all duration-300 ease-in-out`}
+              />
             </button>
             <button
               className={`${
@@ -85,7 +108,12 @@ export default function Home() {
               } rounded-r-md`}
               onClick={() => setSection("galery")}
             >
-              Galery
+              <FontAwesomeIcon
+                icon={faPhotoFilm}
+                className={`${
+                  section === "message" ? " text-green-normal" : "text-white"
+                } h-4 transition-all duration-300 ease-in-out`}
+              />
             </button>
           </div>
           <MusicPlayer />
@@ -94,14 +122,17 @@ export default function Home() {
         {/* Modal image */}
         <div
           className={`modal ${
-            selectedImage ? "open" : "close"
-          } absolute z-20 flex min-h-screen w-screen flex-col overflow-hidden bg-black/50 px-4 py-6 text-green-normal backdrop-blur-md`}
+            showImage ? "open" : "close"
+          } absolute z-20 flex min-h-screen w-screen flex-col overflow-hidden bg-white px-8 py-16 text-green-normal backdrop-blur-md`}
         >
-          <img src={selectedImage} alt="" className=" h-full" />
-          <button onClick={() => setSelectedImage(null)}>
+          <img src={selectedImage.src} alt="" className=" h-full " />
+          <div className=" pt-2 text-center text-lg text-black">
+            {selectedImage.description}
+          </div>
+          <button onClick={() => resetSelectedImage()}>
             <FontAwesomeIcon
               icon={faXmarkCircle}
-              className=" mt-4 h-6 text-white"
+              className=" mt-6 h-6 text-black"
             />
           </button>
         </div>

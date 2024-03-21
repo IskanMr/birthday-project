@@ -17,6 +17,43 @@
   .font-outline-4 {
     -webkit-text-stroke: 4px #08a78b;
   }
+
+  .font-outline-1-blue {
+    -webkit-text-stroke: 1px #9fdef2;
+  }
+
+  .font-outline-2-blue {
+    -webkit-text-stroke: 2px #9fdef2;
+  }
+
+  .font-outline-3-blue {
+    -webkit-text-stroke: 3px #9fdef2;
+  }
+
+  .font-outline-4-blue {
+    -webkit-text-stroke: 4px #9fdef2;
+  }
+
+  .modal {
+    transition: all 0.3s ease-in-out;
+    position: fixed;
+  }
+
+  .modal.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal.close {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+  }
 }
 
 * {

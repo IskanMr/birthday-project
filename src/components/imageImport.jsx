@@ -64,6 +64,99 @@ const imagesJPG = [
   // rockBurger,
 ];
 
+const imagesDetails = [
+  {
+    name: "movie",
+    src: movie,
+    description:
+      "Foto kita waktu habis nonton film horor korea (film nya nakutin tapi aku fokus ke kamu yang meluk tangan aku 😋)",
+  },
+  {
+    name: "gsp",
+    src: gsp,
+    description:
+      "Foto kita waktu di gsp (abis manjat pager stadion yang engga seberapa itu 😔)",
+  },
+  {
+    name: "gsp2",
+    src: gsp2,
+    description:
+      "Foto kita waktu di gsp (IM SO HAPPY, kamu mo nemenin aku di ultah aku 💜)",
+  },
+  {
+    name: "omars",
+    src: omars,
+    description:
+      "Foto kita waktu mam chicken wings di omars (kamu malu malu lagi, padahal cantik banget 😤)",
+  },
+  {
+    name: "bukber",
+    src: bukber,
+    description:
+      "Foto kita waktu kamu pertama kali ketemu temen akuh (temen ku langsung amazed sama kamu, aku juga 😋)",
+  },
+  {
+    name: "wisdom",
+    src: wisdom,
+    description:
+      "Foto kita waktu di wisdom park pada malam ituh (aku senang besar karena kamu terima ehehehe 🥰)",
+  },
+  {
+    name: "gelato",
+    src: gelato,
+    description:
+      "Foto kamu yang lucu dan malu di tempo gelato (KENAPA KAMU LUCU BANGET GRAAAAA 😤)",
+  },
+  {
+    name: "galeria",
+    src: galeria,
+    description:
+      "Foto kita waktu abis seri bertanding ayo dance di galeria (engga nyangka lagi kalo kamu dewa di ayo dance 😭)",
+  },
+  {
+    name: "galeria2",
+    src: galeria2,
+    description:
+      "Foto kita waktu abis selesai nyari hamster di galeria (full body, biar outfit yang keren itu keliatan 😎)",
+  },
+  {
+    name: "ft",
+    src: ft,
+    description:
+      "Foto kita waktu di sglc yang engga seberapa itu (untung lampunya masih nyala, jadi kamu yang cantikk keliatan 😋)",
+  },
+  {
+    name: "ft2",
+    src: ft2,
+    description:
+      "Foto kamu menghardik kucing kecil 'icha' di fak. teknik (kamu lucu jadi aku foto 😤)",
+  },
+  {
+    name: "roller",
+    src: roller,
+    description:
+      "Foto (bayangan) kita waktu belajar roller skate (kamu ternyata lebih jago dan aku jatuh 😭)",
+  },
+  {
+    name: "roller2",
+    src: roller2,
+    description:
+      "Foto kamu yang jago roller skate itu (aku engga nyangka kamu udah pernah roller skate 😳)",
+  },
+  {
+    name: "kangen",
+    src: kangen,
+    description:
+      "Foto pertama kita ketemu di pasar kangen (full body, biar keliatan aku lebih tinggi 😎)",
+  },
+  {
+    name: "kangen2",
+    src: kangen2,
+    description:
+      "Foto kita di pasar kangen <br/> (aku langsung naksir kamu 😋)",
+  },
+];
+
 const imagesWEBP = [
   movieW,
   gspW,
@@ -82,4 +175,4 @@ const imagesWEBP = [
   kangen2W,
 ];
 
-export default imagesJPG;
+export default imagesDetails;
