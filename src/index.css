@@ -5,11 +5,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Allura&family=Satisfy&display=swap");
 
 @layer base {
-  @font-face {
-    font-family: Harley;
-    font-weight: 400;
-    src: url(./assets/fonts/harley.ttf) format("ttf");
-  }
   .font-outline-1 {
     -webkit-text-stroke: 1px #08a78b;
   }

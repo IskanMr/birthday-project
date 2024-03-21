@@ -1,42 +1,28 @@
 import { HtmlHead } from "../components/HtmlHead";
 import { MusicPlayer } from "../components/MusicPlayer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { faXmarkCircle } from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
+import bgDuck from "../assets/img/bg-duck.png";
+import Images from "../components/imageImport";
+import { Img } from "react-image";
 import "./Home.css";
 
 export default function Home() {
   const [showModal, setShowModal] = useState(true);
   const [selectedImage, setSelectedImage] = useState(null);
   const [section, setSection] = useState("message");
+  const [showMusic, setShowMusic] = useState(true);
+
+  const MyLoader = () => <div>Loading...</div>;
+
+  const MyErrorComponent = () => <div>Error loading image.</div>;
 
   const button =
     "w-[100px] py-1 bg-green-lighter text-green-normal text-sm transition duration-300 ease-in-out font-medium border-2 border-green-normal";
   const buttonActive =
     "w-[100px] py-1 bg-green-normal text-white text-sm transition duration-300 ease-in-out border-2 border-green-normal";
-
-  // Array of image URLs
-  const images = [
-    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
-    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
-    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
-    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
-    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
-    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
-    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
-    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
-    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
-    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
-    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
-    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
-    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
-    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
-    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
-    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
-    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
-    "https://omahkayu.linkproductive.com/wp-content/uploads/2024/03/3.png",
-    // Add more image URLs here
-  ];
 
   return (
     <>
@@ -55,12 +41,16 @@ export default function Home() {
 
         {section === "galery" && (
           <div className="grid grid-cols-3 gap-[2px] ">
-            {images.map((image, index) => (
-              <img
+            {Images.map((image, index) => (
+              <Img
                 key={index}
+                loading="lazy"
                 src={image}
                 alt=""
                 onClick={() => setSelectedImage(image)}
+                className="h-[32vw] w-full object-cover"
+                loader={<MyLoader />}
+                unloader={<MyErrorComponent />}
               />
             ))}
           </div>
@@ -69,7 +59,19 @@ export default function Home() {
         {/* <button onClick={() => setShowModal(!showModal)}>Show modal</button> */}
 
         {/* Bottom section  */}
-        <div className=" fixed bottom-0 z-[1] mb-4 flex w-full flex-col justify-center">
+        <div
+          className={`${
+            showMusic ? "" : "translate-y-[63%]"
+          } fixed bottom-0 z-[1] mb-4 flex w-full flex-col justify-center transition-all duration-300 ease-in-out`}
+        >
+          <button onClick={() => setShowMusic(!showMusic)}>
+            <FontAwesomeIcon
+              icon={faChevronUp}
+              className={`${
+                showMusic ? "rotate-180" : ""
+              } mt-4 h-6 text-green-normal transition-all duration-300 ease-in-out`}
+            />
+          </button>
           <div className="mb-3 flex justify-center">
             <button
               className={`${
@@ -97,7 +99,7 @@ export default function Home() {
             selectedImage ? "open" : "close"
           } absolute z-10 flex min-h-screen w-screen flex-col overflow-hidden bg-black/50 px-4 py-6 text-green-normal backdrop-blur-md`}
         >
-          <img src={selectedImage} alt="" className="h-full" />
+          <img src={selectedImage} alt="" className=" h-full" />
           <button onClick={() => setSelectedImage(null)}>
             <FontAwesomeIcon
               icon={faXmarkCircle}
