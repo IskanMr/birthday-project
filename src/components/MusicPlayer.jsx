@@ -53,6 +53,7 @@ export function MusicPlayer({ className = "" }) {
         includeTags={false}
         includeSearch={false}
         showPlaylist={false}
+        autoPlayNextTrack={true}
       />
     </div>
   );

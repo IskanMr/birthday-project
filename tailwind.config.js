@@ -19,6 +19,9 @@ module.exports = {
         display: ["Poppins", "sans-serif"],
         title: ["Allura", "sans-serif"],
       },
+      backgroundImage: {
+        duck: "url('/src/assets/img/bg-duck.png')",
+      },
     },
   },
   plugins: [require("@tailwindcss/line-clamp")],

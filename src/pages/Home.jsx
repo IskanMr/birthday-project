@@ -17,7 +17,7 @@ export default function Home() {
 
   const MyLoader = () => <div>Loading...</div>;
 
-  const MyErrorComponent = () => <div>Error loading image.</div>;
+  const MyErrorComponent = () => <div>Error!</div>;
 
   const button =
     "w-[100px] py-1 bg-green-lighter text-green-normal text-sm transition duration-300 ease-in-out font-medium border-2 border-green-normal";
@@ -33,14 +33,14 @@ export default function Home() {
       />
       <div className="relative flex min-h-screen flex-col bg-blue">
         {section === "message" && (
-          <div className="px-4 pt-6 text-xl">
+          <div className="z-10 px-4 pt-6 text-xl">
             Selamat ulang tahun ya cantik, semoga bla bla bla dan semakin bla
             bla bla. Thank you udah bla bla bla
           </div>
         )}
 
         {section === "galery" && (
-          <div className="grid grid-cols-3 gap-[2px] ">
+          <div className="z-10 grid grid-cols-3 gap-[2px]">
             {Images.map((image, index) => (
               <Img
                 key={index}
@@ -56,13 +56,11 @@ export default function Home() {
           </div>
         )}
 
-        {/* <button onClick={() => setShowModal(!showModal)}>Show modal</button> */}
-
         {/* Bottom section  */}
         <div
           className={`${
             showMusic ? "" : "translate-y-[63%]"
-          } fixed bottom-0 z-[1] mb-4 flex w-full flex-col justify-center transition-all duration-300 ease-in-out`}
+          } fixed bottom-0 z-[11] mb-4 flex w-full flex-col justify-center transition-all duration-300 ease-in-out`}
         >
           <button onClick={() => setShowMusic(!showMusic)}>
             <FontAwesomeIcon
@@ -97,7 +95,7 @@ export default function Home() {
         <div
           className={`modal ${
             selectedImage ? "open" : "close"
-          } absolute z-10 flex min-h-screen w-screen flex-col overflow-hidden bg-black/50 px-4 py-6 text-green-normal backdrop-blur-md`}
+          } absolute z-20 flex min-h-screen w-screen flex-col overflow-hidden bg-black/50 px-4 py-6 text-green-normal backdrop-blur-md`}
         >
           <img src={selectedImage} alt="" className=" h-full" />
           <button onClick={() => setSelectedImage(null)}>
@@ -112,7 +110,7 @@ export default function Home() {
         <div
           className={`modal ${
             showModal ? "open" : "close"
-          } absolute z-10 flex min-h-screen w-screen flex-col overflow-hidden bg-pink py-6 text-green-normal`}
+          } absolute z-20 flex min-h-screen w-screen flex-col overflow-hidden bg-pink py-6 text-green-normal`}
         >
           <div className=" text-center font-title text-[100px] leading-[100px]">
             Happy <br /> Birthday
@@ -136,6 +134,13 @@ export default function Home() {
             </button>
           </div>
         </div>
+
+        {/* Bg duck */}
+        <div
+          src={bgDuck}
+          className=" absolute top-0  min-h-screen w-full bg-duck bg-contain"
+          alt=""
+        />
       </div>
     </>
   );
