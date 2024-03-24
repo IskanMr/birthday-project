@@ -1,5 +1,10 @@
+import { useState } from "react";
+import VisibilitySensor from "react-visibility-sensor";
+
 import { HtmlHead } from "../components/HtmlHead";
 import { MusicPlayer } from "../components/MusicPlayer";
+import Images from "../components/imageImport";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronUp,
@@ -7,10 +12,9 @@ import {
   faPhotoFilm,
 } from "@fortawesome/free-solid-svg-icons";
 import { faXmarkCircle } from "@fortawesome/free-regular-svg-icons";
-import { useState } from "react";
+
 import bgDuck from "../assets/img/bg-duck.png";
-import Images from "../components/imageImport";
-import VisibilitySensor from "react-visibility-sensor";
+import Cake from "../assets/img/cake.svg";
 
 export default function Home() {
   const [showModal, setShowModal] = useState(true);
@@ -42,7 +46,7 @@ export default function Home() {
     <>
       <HtmlHead
         title="Beranda"
-        decription="[insert page description]"
+        decription="sebuah website untuk merayakan ulang tahun seorang wanita yang sangat spesial!"
         link="/"
       />
       <div className="relative flex min-h-screen flex-col bg-blue py-2">
@@ -51,12 +55,14 @@ export default function Home() {
             <div>
               SELAMAT ULANG TAHUN BUNGAKU CINTAKU KASIHKU SAYANGKU! 🎉🎉🎉
             </div>
-            <div>Thank you yaa udah mau sama aku (engga kepaksa kan)</div>
+            <div>
+              Makaci udah mau spend a lot of time with me, eating, main, and
+              exploring places. I really love spending time with you 💜
+            </div>
             <div>
               Semoga dengan bertambahnya umur kamu, kamu semakin sukses, semakin
-              cantik, semakin pinter, semakin makin (yang baik baik)
+              cantik, semakin pinter, semakin makin yang baik baik
             </div>
-            <div>Thank you for </div>
           </div>
         )}
 
@@ -147,13 +153,12 @@ export default function Home() {
         <div
           className={`modal ${
             showModal ? "open" : "close"
-          } absolute z-20 flex min-h-screen w-screen flex-col overflow-hidden bg-pink py-6 text-green-normal`}
+          } absolute z-20 flex min-h-screen w-screen flex-col items-center overflow-hidden bg-pink py-6 text-green-normal`}
         >
           <div className=" text-center font-title text-[100px] leading-[100px]">
             Happy <br /> Birthday
           </div>
-          {/* <img src="" alt="" className=" min-h-[40vh] pb-6" /> */}
-          <div className=" min-h-[40vh] pb-6"></div>
+          <img src={Cake} alt="cake" className="w-4/5" />
           {/* <div className="font-outline-1 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-nowrap text-[56px] font-black leading-[56px] text-transparent">
             21 21 21 21 21 21 21 <br />
             21 21 21 21 21 21 21 <br />

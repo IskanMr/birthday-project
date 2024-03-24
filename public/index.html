@@ -83,4 +83,14 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+      setTimeout(() => {
+        const playButton = document.querySelector("._play_rfl62_1");
+        if (playButton) {
+          playButton.click();
+        }
+      }, 1000); // Delay of 2 seconds
+    });
+  </script>
 </html>
