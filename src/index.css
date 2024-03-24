@@ -36,12 +36,15 @@
 
   .modal {
     transition: all 0.3s ease-in-out;
-    position: fixed;
   }
 
   .modal.open {
     opacity: 1;
     visibility: visible;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    overflow: hidden;
   }
 
   .modal.close {
@@ -61,6 +64,8 @@
 }
 
 body {
-  font-family: "Noto Sans KR", sans-serif;
-  background-color: #f7fafc;
+  font-family: "Poppins", sans-serif;
+  background-color: #9fdef2;
+  height: 100%;
+  overflow-y: hidden;
 }

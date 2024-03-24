@@ -6,14 +6,10 @@ import NotFound from "./pages/NotFound";
 function App() {
   return (
     <div className={`app`}>
-      <main className="font-display">
-        <Routes>
-          <Route path="/" element={<Home />} />
-
-          {/* 404 */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </div>
   );
 }

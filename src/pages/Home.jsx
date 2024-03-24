@@ -10,7 +10,7 @@ import { faXmarkCircle } from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
 import bgDuck from "../assets/img/bg-duck.png";
 import Images from "../components/imageImport";
-import { Img } from "react-image";
+import VisibilitySensor from "react-visibility-sensor";
 
 export default function Home() {
   const [showModal, setShowModal] = useState(true);
@@ -33,10 +33,6 @@ export default function Home() {
     setSelectedImage(image);
   };
 
-  const MyLoader = () => <div>Loading...</div>;
-
-  const MyErrorComponent = () => <div>Error!</div>;
-
   const button =
     "w-[72px] py-1 bg-green-lighter text-green-normal text-sm transition duration-300 ease-in-out font-medium border-2 border-green-normal";
   const buttonActive =
@@ -51,25 +47,31 @@ export default function Home() {
       />
       <div className="relative flex min-h-screen flex-col bg-blue py-2">
         {section === "message" && (
-          <div className=" z-10 mx-4 mt-6 flex rounded-md bg-white p-2 text-lg outline-2 outline-green-normal ">
-            Selamat ulang tahun ya cantik, semoga bla bla bla dan semakin bla
-            bla bla. Thank you udah bla bla bla
+          <div className="z-10 mx-4 mt-6 flex flex-col space-y-3 rounded-md bg-white p-2 text-lg outline-2 outline-green-normal ">
+            <div>
+              SELAMAT ULANG TAHUN BUNGAKU CINTAKU KASIHKU SAYANGKU! 🎉🎉🎉
+            </div>
+            <div>Thank you yaa udah mau sama aku (engga kepaksa kan)</div>
+            <div>
+              Semoga dengan bertambahnya umur kamu, kamu semakin sukses, semakin
+              cantik, semakin pinter, semakin makin (yang baik baik)
+            </div>
+            <div>Thank you for </div>
           </div>
         )}
 
         {section === "galery" && (
           <div className="z-10 grid grid-cols-3 gap-[2px]">
             {Images.map((image, index) => (
-              <Img
-                key={index}
-                loading="lazy"
-                src={image.src}
-                alt=""
-                onClick={() => onImageClick(image)}
-                className="h-[32vw] w-full object-cover"
-                loader={<MyLoader />}
-                unloader={<MyErrorComponent />}
-              />
+              <VisibilitySensor>
+                <img
+                  key={index}
+                  src={image.src}
+                  alt={`${image.name}`}
+                  onClick={() => onImageClick(image)}
+                  className="h-[32vw] w-full object-cover"
+                />
+              </VisibilitySensor>
             ))}
           </div>
         )}
@@ -166,7 +168,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Bg duck */}
+        {/* Background duck */}
         <div
           src={bgDuck}
           className=" absolute top-0  min-h-screen w-full bg-duck bg-contain"
