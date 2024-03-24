@@ -127,7 +127,11 @@ export default function Home() {
             showImage ? "open" : "close"
           } absolute z-20 flex min-h-screen w-screen flex-col overflow-hidden bg-white px-8 py-16 text-green-normal backdrop-blur-md`}
         >
-          <img src={selectedImage.src} alt="" className=" h-full " />
+          <img
+            src={selectedImage.src}
+            alt={`${selectedImage.name}`}
+            className=" h-full object-cover"
+          />
           <div className=" pt-2 text-center text-lg text-black">
             {selectedImage.description}
           </div>
