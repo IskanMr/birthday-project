@@ -104,7 +104,7 @@ export default function Home() {
   };
 
   const button =
-    "w-[72px] py-1 bg-pink-light text-green-normal text-sm transition duration-300 ease-in-out font-medium border-2 border-pink";
+    "w-[72px] py-1 bg-pink-light text-green text-sm transition duration-300 ease-in-out font-medium border-2 border-pink";
   const buttonActive =
     "w-[72px] py-1 bg-pink text-white text-sm transition duration-300 ease-in-out border-2 border-pink";
 
@@ -126,7 +126,7 @@ export default function Home() {
         {section === "message" && (
           <div>
             <div
-              className="outline-green-normal mx-4 mt-6 flex flex-col space-y-3 rounded-md bg-white p-2 text-lg outline-2 "
+              className="mx-4 mt-6 flex flex-col space-y-3 rounded-md bg-white p-2 text-lg outline-2 outline-green "
               style={{
                 boxShadow:
                   "10px 12px 0px rgba(0, 0, 0, 0.3), -1px -1px 0px rgba(0, 0, 0, 0.3)",
@@ -234,7 +234,7 @@ export default function Home() {
         <div
           className={`modal ${
             showImage ? "open" : "close"
-          } text-green-normal absolute z-20 flex min-h-screen w-screen flex-col overflow-hidden bg-white px-8 py-16 backdrop-blur-md`}
+          } absolute z-20 flex min-h-screen w-screen flex-col overflow-hidden bg-white px-8 py-16 text-green backdrop-blur-md`}
         >
           <img
             src={selectedImage.src}
@@ -256,7 +256,7 @@ export default function Home() {
         <div
           className={`modal ${
             showModal ? "open" : "close"
-          } text-green-normal absolute z-20 flex min-h-screen w-screen flex-col items-center overflow-hidden bg-pink py-6`}
+          } absolute z-20 flex min-h-screen w-screen flex-col items-center overflow-hidden bg-pink py-6 text-green`}
         >
           <div className=" text-center font-title text-[100px] leading-[100px]">
             Happy <br /> Birthday
