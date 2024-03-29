@@ -1,5 +1,6 @@
 import { useState } from "react";
 import VisibilitySensor from "react-visibility-sensor";
+import ConfettiExplosion from "react-confetti-explosion";
 
 import { HtmlHead } from "../components/HtmlHead";
 import { MusicPlayer } from "../components/MusicPlayer";
@@ -15,6 +16,10 @@ import { faXmarkCircle } from "@fortawesome/free-regular-svg-icons";
 
 import bgDuck from "../assets/img/bg-duck.png";
 import Cake from "../assets/img/cake.svg";
+import Cat from "../assets/img/cat.svg";
+import CatOpen from "../assets/img/cat-open.svg";
+import Duck from "../assets/img/duck.svg";
+import DuckOpen from "../assets/img/duck-open.svg";
 
 export default function Home() {
   const [showModal, setShowModal] = useState(true);
@@ -26,6 +31,31 @@ export default function Home() {
   });
   const [section, setSection] = useState("message");
   const [showMusic, setShowMusic] = useState(true);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [pickClicked, setPickClicked] = useState("cat");
+
+  const bigExplodeProps = {
+    force: 0.6,
+    duration: 6500,
+    particleCount: 200,
+    floorHeight: 1600,
+    floorWidth: 1600,
+  };
+
+  const source = {
+    position: "absolute",
+    right: "50%",
+    left: "50%",
+    top: "50%",
+    bottom: "50%",
+  };
+
+  const onConfettiClick = () => {
+    setShowConfetti(true);
+    setTimeout(() => {
+      setShowConfetti(false);
+    }, 5000);
+  };
 
   const resetSelectedImage = () => {
     setShowImage(false);
@@ -35,6 +65,11 @@ export default function Home() {
   const onImageClick = (image) => {
     setShowImage(true);
     setSelectedImage(image);
+  };
+
+  const onXClick = () => {
+    setShowModal(false);
+    onConfettiClick();
   };
 
   const button =
@@ -51,17 +86,23 @@ export default function Home() {
       />
       <div className="relative flex min-h-screen flex-col bg-blue py-2">
         {section === "message" && (
-          <div className="z-10 mx-4 mt-6 flex flex-col space-y-3 rounded-md bg-white p-2 text-lg outline-2 outline-green-normal ">
-            <div>
-              SELAMAT ULANG TAHUN BUNGAKU CINTAKU KASIHKU SAYANGKU! 🎉🎉🎉
+          <div>
+            <div className="mx-4 mt-6 flex flex-col space-y-3 rounded-md bg-white p-2 text-lg outline-2 outline-green-normal ">
+              <div>
+                SELAMAT ULANG TAHUN BUNGAKU CINTAKU KASIHKU SAYANGKU! 🎉🎉🎉
+              </div>
+              <div>
+                Makaci udah mau spend a lot of time with me, eating, main, and
+                exploring places. I really love spending time with you 💜
+              </div>
+              <div>
+                Semoga dengan bertambahnya umur kamu, kamu semakin sukses,
+                semakin cantik, semakin pinter, semakin makin yang baik baik
+              </div>
             </div>
-            <div>
-              Makaci udah mau spend a lot of time with me, eating, main, and
-              exploring places. I really love spending time with you 💜
-            </div>
-            <div>
-              Semoga dengan bertambahnya umur kamu, kamu semakin sukses, semakin
-              cantik, semakin pinter, semakin makin yang baik baik
+            <div className="flex items-center justify-around">
+              <img src={Cat} alt="cat" />
+              <img src={Duck} alt="duck" />
             </div>
           </div>
         )}
@@ -158,31 +199,35 @@ export default function Home() {
           <div className=" text-center font-title text-[100px] leading-[100px]">
             Happy <br /> Birthday
           </div>
-          <img src={Cake} alt="cake" className="w-4/5" />
-          {/* <div className="font-outline-1 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-nowrap text-[56px] font-black leading-[56px] text-transparent">
-            21 21 21 21 21 21 21 <br />
-            21 21 21 21 21 21 21 <br />
-            21 21 21 21 21 21 21 <br />
-            21 21 21 21 21 21 21 <br />
-            21 21 21 21 21 21 21 <br />
-          </div> */}
+          <img
+            src={Cake}
+            alt="cake"
+            className="w-4/5"
+            onClick={() => setShowConfetti(true)}
+          />
           <div className="fixed bottom-0 z-[1] mb-4 flex w-full flex-col justify-center">
             <div className=" text-center font-title text-3xl">to: </div>
             <div className="mb-7 text-center font-title text-4xl">
               My Lovely Cute Flower
             </div>
-            <button onClick={() => setShowModal(!showModal)}>
+            <button onClick={() => onXClick()}>
               <FontAwesomeIcon icon={faXmarkCircle} className=" text-red h-6" />
             </button>
           </div>
         </div>
 
         {/* Background duck */}
-        <div
+        {/* <div
           src={bgDuck}
           className=" absolute top-0  min-h-screen w-full bg-duck bg-contain"
           alt=""
-        />
+        /> */}
+
+        {showConfetti && (
+          <div style={source}>
+            <ConfettiExplosion {...bigExplodeProps} />
+          </div>
+        )}
       </div>
     </>
   );
