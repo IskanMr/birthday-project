@@ -234,20 +234,20 @@ export default function Home() {
         <div
           className={`modal ${
             showImage ? "open" : "close"
-          } absolute z-20 flex min-h-screen w-screen flex-col overflow-hidden bg-white px-8 py-16 text-green backdrop-blur-md`}
+          } absolute z-20 flex min-h-screen w-screen flex-col overflow-hidden bg-white px-8 py-12 text-green backdrop-blur-md`}
         >
           <img
             src={selectedImage.src}
             alt={`${selectedImage.name}`}
             className=" h-full object-cover"
           />
-          <div className=" pt-2 text-center text-lg text-black">
+          <div className=" pt-2 text-center text-base text-black">
             {selectedImage.description}
           </div>
           <button onClick={() => resetSelectedImage()}>
             <FontAwesomeIcon
               icon={faXmarkCircle}
-              className=" mt-6 h-6 text-black"
+              className=" mb-8 mt-4 h-6 text-black"
             />
           </button>
         </div>
