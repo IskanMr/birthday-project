@@ -13,6 +13,9 @@ import omars from "../assets/img/omars-long.jpg";
 import roller from "../assets/img/roller-long.jpg";
 import roller2 from "../assets/img/roller-2.jpg";
 import wisdom from "../assets/img/wisdom-long.jpg";
+import ices from "../assets/img/ices.jpg";
+import noodles from "../assets/img/noodles.jpg";
+import noodle from "../assets/img/noodle.jpg";
 
 const imagesDetails = [
   {
@@ -103,6 +106,23 @@ const imagesDetails = [
     name: "kangen2",
     src: kangen2,
     description: "Foto kita di pasar kangen (aku langsung naksir kamu 😋)",
+  },
+  {
+    name: "ices",
+    src: ices,
+    description:
+      "Foto eskrim di tempat yang rame banget itu (habis foto ini aku foto kamu 😤)",
+  },
+  {
+    name: "noodles",
+    src: noodles,
+    description:
+      "Foto mie yang lama banget nunggu nya itu (kepagian banget 😭)",
+  },
+  {
+    name: "noodle",
+    src: noodle,
+    description: "Foto mie bandung yang super enak itu (mati lampu tapi 😭)",
   },
 ];
 

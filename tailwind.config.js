@@ -4,13 +4,16 @@ module.exports = {
     extend: {
       colors: {
         green: {
-          normal: "#08A78B",
+          DEFAULT: "#08A78B",
           lightest: "#D3F0E5",
           lighter: "#A2DFD4",
         },
         blue: "#9FDEF2",
         purple: "#EDC9FF",
-        pink: "#FED4E7",
+        pink: {
+          light: "#FFEFF6",
+          DEFAULT: "#FFC8E1",
+        },
         yellow: "#FCF058",
         white: "#ffffff",
         black: "#3F4254",

@@ -14,7 +14,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faXmarkCircle } from "@fortawesome/free-regular-svg-icons";
 
-import bgDuck from "../assets/img/bg-duck.png";
+import Clouds from "../assets/img/clouds2.png";
+import Grass from "../assets/img/grass.png";
 import Cake from "../assets/img/cake.svg";
 import Cat from "../assets/img/cat.svg";
 import CatOpen from "../assets/img/cat-open.svg";
@@ -32,11 +33,12 @@ export default function Home() {
   const [section, setSection] = useState("message");
   const [showMusic, setShowMusic] = useState(true);
   const [showConfetti, setShowConfetti] = useState(false);
-  const [pickClicked, setPickClicked] = useState("cat");
+  const [catPick, setCatPick] = useState(false);
+  const [duckPick, setDuckPick] = useState(false);
 
   const bigExplodeProps = {
-    force: 0.6,
-    duration: 6500,
+    force: 0.8,
+    duration: 3000,
     particleCount: 200,
     floorHeight: 1600,
     floorWidth: 1600,
@@ -48,18 +50,23 @@ export default function Home() {
     left: "50%",
     top: "50%",
     bottom: "50%",
-  };
-
-  const onConfettiClick = () => {
-    setShowConfetti(true);
-    setTimeout(() => {
-      setShowConfetti(false);
-    }, 5000);
+    zIndex: 100,
   };
 
   const resetSelectedImage = () => {
     setShowImage(false);
     setSelectedImage({ name: null, src: null, description: null });
+  };
+
+  const onConfettiClick = () => {
+    setShowConfetti(true);
+    const audio = new Audio(
+      "https://pointxpal.com/wp-content/uploads/2024/03/confeti.mp3"
+    );
+    audio.play();
+    setTimeout(() => {
+      setShowConfetti(false);
+    }, 2000);
   };
 
   const onImageClick = (image) => {
@@ -72,10 +79,34 @@ export default function Home() {
     onConfettiClick();
   };
 
+  const onCatClick = () => {
+    setCatPick(true);
+    onConfettiClick();
+    const audio = new Audio(
+      "https://pointxpal.com/wp-content/uploads/2024/03/meow.mp3"
+    );
+    audio.play();
+    setTimeout(() => {
+      setCatPick(false);
+    }, 600);
+  };
+
+  const onDuckClick = () => {
+    setDuckPick(true);
+    onConfettiClick();
+    const audio = new Audio(
+      "https://pointxpal.com/wp-content/uploads/2024/03/quack.mp3"
+    );
+    audio.play();
+    setTimeout(() => {
+      setDuckPick(false);
+    }, 600);
+  };
+
   const button =
-    "w-[72px] py-1 bg-green-lighter text-green-normal text-sm transition duration-300 ease-in-out font-medium border-2 border-green-normal";
+    "w-[72px] py-1 bg-pink-light text-green-normal text-sm transition duration-300 ease-in-out font-medium border-2 border-pink";
   const buttonActive =
-    "w-[72px] py-1 bg-green-normal text-white text-sm transition duration-300 ease-in-out border-2 border-green-normal";
+    "w-[72px] py-1 bg-pink text-white text-sm transition duration-300 ease-in-out border-2 border-pink";
 
   return (
     <>
@@ -84,10 +115,23 @@ export default function Home() {
         decription="sebuah website untuk merayakan ulang tahun seorang wanita yang sangat spesial!"
         link="/"
       />
-      <div className="relative flex min-h-screen flex-col bg-blue py-2">
+      <div
+        className="relative flex min-h-screen flex-col bg-blue py-2"
+        style={{
+          backgroundImage: `url(${Clouds})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "contain",
+        }}
+      >
         {section === "message" && (
           <div>
-            <div className="mx-4 mt-6 flex flex-col space-y-3 rounded-md bg-white p-2 text-lg outline-2 outline-green-normal ">
+            <div
+              className="outline-green-normal mx-4 mt-6 flex flex-col space-y-3 rounded-md bg-white p-2 text-lg outline-2 "
+              style={{
+                boxShadow:
+                  "10px 12px 0px rgba(0, 0, 0, 0.3), -1px -1px 0px rgba(0, 0, 0, 0.3)",
+              }}
+            >
               <div>
                 SELAMAT ULANG TAHUN BUNGAKU CINTAKU KASIHKU SAYANGKU! 🎉🎉🎉
               </div>
@@ -100,10 +144,28 @@ export default function Home() {
                 semakin cantik, semakin pinter, semakin makin yang baik baik
               </div>
             </div>
-            <div className="flex items-center justify-around">
-              <img src={Cat} alt="cat" />
-              <img src={Duck} alt="duck" />
+
+            <div className=" absolute bottom-[27vh] z-[10] flex w-full items-center justify-around">
+              <img
+                src={catPick ? CatOpen : Cat}
+                alt="cat"
+                className="translate-y-3"
+                onClick={() => onCatClick()}
+              />
+              <img
+                src={duckPick ? DuckOpen : Duck}
+                alt="duck"
+                onClick={() => onDuckClick()}
+              />
             </div>
+            <div
+              className=" absolute bottom-0 flex h-[30vh] w-full bg-green-lighter"
+              style={{
+                backgroundImage: `url(${Grass})`,
+                backgroundRepeat: "repeat",
+                backgroundSize: "contain",
+              }}
+            />
           </div>
         )}
 
@@ -134,7 +196,7 @@ export default function Home() {
               icon={faChevronUp}
               className={`${
                 showMusic ? "rotate-180" : ""
-              } mt-4 h-6 text-green-normal transition-all duration-300 ease-in-out`}
+              } mt-4 h-6 text-pink transition-all duration-300 ease-in-out`}
             />
           </button>
           <div className="mb-3 flex justify-center">
@@ -147,7 +209,7 @@ export default function Home() {
               <FontAwesomeIcon
                 icon={faNoteSticky}
                 className={`${
-                  section === "galery" ? " text-green-normal" : "text-white"
+                  section === "galery" ? " text-pink" : "text-pink-light"
                 } h-4 transition-all duration-300 ease-in-out`}
               />
             </button>
@@ -160,7 +222,7 @@ export default function Home() {
               <FontAwesomeIcon
                 icon={faPhotoFilm}
                 className={`${
-                  section === "message" ? " text-green-normal" : "text-white"
+                  section === "message" ? " text-pink" : "text-pink-light"
                 } h-4 transition-all duration-300 ease-in-out`}
               />
             </button>
@@ -172,7 +234,7 @@ export default function Home() {
         <div
           className={`modal ${
             showImage ? "open" : "close"
-          } absolute z-20 flex min-h-screen w-screen flex-col overflow-hidden bg-white px-8 py-16 text-green-normal backdrop-blur-md`}
+          } text-green-normal absolute z-20 flex min-h-screen w-screen flex-col overflow-hidden bg-white px-8 py-16 backdrop-blur-md`}
         >
           <img
             src={selectedImage.src}
@@ -194,7 +256,7 @@ export default function Home() {
         <div
           className={`modal ${
             showModal ? "open" : "close"
-          } absolute z-20 flex min-h-screen w-screen flex-col items-center overflow-hidden bg-pink py-6 text-green-normal`}
+          } text-green-normal absolute z-20 flex min-h-screen w-screen flex-col items-center overflow-hidden bg-pink py-6`}
         >
           <div className=" text-center font-title text-[100px] leading-[100px]">
             Happy <br /> Birthday
@@ -217,11 +279,11 @@ export default function Home() {
         </div>
 
         {/* Background duck */}
-        {/* <div
-          src={bgDuck}
-          className=" absolute top-0  min-h-screen w-full bg-duck bg-contain"
-          alt=""
-        /> */}
+        <div
+          src={Clouds}
+          className=" absolute top-0 h-[70vh] w-full "
+          alt="clouds"
+        />
 
         {showConfetti && (
           <div style={source}>
